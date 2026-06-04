@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useTodayTasks } from '../hooks/useTodayTasks.js';
 import { useLowMasteryChapters } from '../hooks/useLowMasteryChapters.js';
 import { apiClient } from '../services/api.js';

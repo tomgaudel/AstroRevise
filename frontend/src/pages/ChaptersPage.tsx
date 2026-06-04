@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { apiClient } from '../services/api.js';
 import { Chapter } from '../types/index.js';
 import { ChapterCard } from '../components/ChapterCard.js';

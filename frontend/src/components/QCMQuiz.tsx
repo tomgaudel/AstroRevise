@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { apiClient } from '../services/api.js';
-import { Question } from '../types/index.js';
 import { LoadingSpinner, FormError, SubmitButton } from './FormElements.js';
 
 interface QCMQuizProps {
@@ -39,17 +38,6 @@ export const QCMQuiz: React.FC<QCMQuizProps> = ({ chapterId, questionCount = 10,
     });
   };
 
-  const handleSubmit = async () => {
-    setIsSubmitting(true);
-    try {
-      const response = await apiClient.submitQCM(chapterId, answers);
-      onComplete(response.data);
-    } catch (err: any) {
-      setError('Erreur lors de la soumission');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   if (isLoading) {
     return (

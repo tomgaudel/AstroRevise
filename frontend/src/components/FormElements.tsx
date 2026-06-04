@@ -1,4 +1,3 @@
-import React from 'react';
 import { AlertCircle, Loader } from 'lucide-react';
 
 interface FormErrorProps {

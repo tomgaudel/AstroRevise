@@ -1,4 +1,3 @@
-import React from 'react';
 import { Menu, X, LogOut, Home, BookOpen, Calendar, BarChart3 } from 'lucide-react';
 import { useState } from 'react';
 import { useAuthStore } from '../hooks/useAuth.js';

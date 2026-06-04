@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
@@ -7,13 +6,11 @@ import { Bold, Italic, List, Link2 } from 'lucide-react';
 interface RichTextEditorProps {
   value: string;
   onChange: (value: string) => void;
-  placeholder?: string;
 }
 
 export const RichTextEditor: React.FC<RichTextEditorProps> = ({
   value,
   onChange,
-  placeholder = 'Écrivez votre note ici...',
 }) => {
   const editor = useEditor({
     extensions: [

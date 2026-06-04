@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiClient } from '../services/api.js';
 import { Chapter, Note, FileResource, Video, AnkiCard } from '../types/index.js';
 import { LoadingSpinner, FormError } from '../components/FormElements.js';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { FileText, Play, Zap, BookOpen } from 'lucide-react';
 
 export const ChapterDetailPage: React.FC = () => {
@@ -14,7 +13,7 @@ export const ChapterDetailPage: React.FC = () => {
   const [videos, setVideos] = useState<Video[]>([]);
   const [ankiCards, setAnkiCards] = useState<AnkiCard[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [, setError] = useState('');
 
   useEffect(() => {
     const loadChapterData = async () => {

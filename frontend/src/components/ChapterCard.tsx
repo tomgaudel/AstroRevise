@@ -1,4 +1,3 @@
-import React from 'react';
 import { AlertCircle } from 'lucide-react';
 import { Chapter } from '../types/index.js';
 import { Link } from 'react-router-dom';

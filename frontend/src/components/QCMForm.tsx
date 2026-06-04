@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { apiClient } from '../services/api.js';
 import { SubmitButton, FormError } from './FormElements.js';
-import { Loader } from 'lucide-react';
 
 interface QCMFormProps {
   chapterId: string;
