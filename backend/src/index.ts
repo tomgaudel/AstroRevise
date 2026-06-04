@@ -1,9 +1,9 @@
-import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import 'dotenv/config';
 
 const app = express();
-const PORT: number = parseInt(process.env.PORT || '5000', 10);
+const PORT = parseInt(process.env.PORT || '5000', 10);
 
 // Middleware
 app.use(cors({
@@ -12,21 +12,33 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Health check
+// Routes
+app.post('/api/auth/login', (req, res) => {
+  console.log('🔵 Requête login reçue');
+  console.log('Body:', req.body);
+  
+  const { email, password } = req.body;
+  
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email et mot de passe requis' });
+  }
+  
+  // Pour l'instant, on accepte n'importe quel email/password
+  // pour tester que la route fonctionne
+  res.json({ 
+    user: { email, id: '123' }, 
+    token: 'fake-token-for-testing' 
+  });
+});
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// Route test
 app.get('/api/test', (req, res) => {
   res.json({ message: 'API is working' });
 });
 
-// Route login temporaire (pour tester)
-app.post('/api/auth/login', (req, res) => {
-  res.json({ message: 'Login route hit' });
-});
-
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 AstroRevise Backend running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
