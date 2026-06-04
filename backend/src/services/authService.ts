@@ -33,7 +33,7 @@ export const authService = {
     const token = jwt.sign(
       { userId: user.id, email: user.email } as AuthPayload,
       process.env.JWT_SECRET!,
-      { expiresIn: process.env.JWT_EXPIRY || '7d' }
+      { expiresIn: (process.env.JWT_EXPIRY || '7d') as any }
     );
 
     return {
