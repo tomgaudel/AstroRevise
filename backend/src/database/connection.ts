@@ -6,17 +6,10 @@ const pool = new Pool({
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
 
-pool.on('error', (err) => {
+pool.on('error', (err: Error) => {
   console.error('Unexpected error on idle client', err);
   process.exit(-1);
 });
 
-export const query = (text: string, params?: any[]) => {
-  return pool.query(text, params);
-};
-
-export const getClient = async () => {
-  return pool.connect();
-};
-
-export default pool;
+export const query = (text: string, params?: any[]) => pool.query(text, params);
+export const getClient = () => pool.connect();
