@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-const API_BASE_URL = '/api';
+const API_BASE_URL = 'https://astrorevise-backend.onrender.com/api';
 
 class ApiClient {
   private client: AxiosInstance;
